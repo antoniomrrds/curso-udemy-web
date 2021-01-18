@@ -1,0 +1,157 @@
+<h1>Projeto</h1>
+
+<ul class="tree">
+    <li>
+        <span onclick="backend()"> backend </span>
+        <span id="zoom"> </span>
+        <ul>
+            <span id="reduc">
+                <li>
+                    <span onclick="app()"> app</span>
+                    <span id="ampli"> </span>
+
+                    <ul>
+                        <span id="reduce">
+                            <li>Produto.js</li>
+
+                            <li>Usuario.js</li>
+                            <li>Venda.js</li>
+                    </ul>
+
+                </li>
+                <li>
+                    <span onclick="config()">config</span>
+                    <span id="amp"></span>
+                    <ul>
+
+                        <span id="red">
+                            <li>banco.js</li>
+
+                            <li>rotas.js</li>
+                            <li>servidor.js</li>
+                        </span>
+            </span>
+        </ul>
+
+    </li>
+</ul>
+</li>
+<li>
+    <span onclick="frontend()"> frontend</span>
+    <span id="front"> </span>
+    <ul>
+        <span id="end">
+            <li>
+                <span onclick="public()"> public</span>
+                <span id="normal"> </span>
+
+                <ul>
+
+                    <span id="menos">
+                        <li>app.css</li>
+                        <li>app.html</li>
+                        <li>app.js</li>
+
+
+                    </span>
+        </span>
+    </ul>
+
+</li>
+</span>
+</ul>
+</li>
+<!-- 
+    <button onclick="" id="but">Retraido</button> -->
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+
+<script>
+    // na hora que eu clicar tem recolher os arquivos
+    function public() {
+        let aberto = document.getElementById('normal')
+        let fechado = document.getElementById('menos')
+        let btnbutto = document.getElementById('but')
+
+        if (aberto.style.display === "none") {
+            aberto.style.display = "inline"
+            fechado.style.display = "none"
+        }
+        else {
+            aberto.style.display = "none"
+            fechado.style.display = "inline"
+        }
+
+    }
+
+
+
+    function frontend() {
+        let aberto = document.getElementById('front')
+        let fechado = document.getElementById('end')
+
+        if (aberto.style.display === "none") {
+            aberto.style.display = "inline"
+            fechado.style.display = "none"
+        }
+        else {
+            aberto.style.display = "none"
+            fechado.style.display = "inline"
+        }
+
+    }
+
+    function config() {
+        let aberto = document.getElementById('amp')
+        let fechado = document.getElementById('red')
+
+
+        if (aberto.style.display === "none") {
+            aberto.style.display = "inline"
+            fechado.style.display = "none"
+        }
+        else {
+            aberto.style.display = "none"
+            fechado.style.display = "inline"
+        }
+
+    }
+
+    function app() {
+        let aberto = document.getElementById('ampli')
+        let fechado = document.getElementById('reduce')
+
+
+        if (aberto.style.display === "none") {
+            aberto.style.display = "inline"
+            fechado.style.display = "none"
+        }
+        else {
+            aberto.style.display = "none"
+            fechado.style.display = "inline"
+        }
+
+    }
+
+    function backend() {
+        let aberto = document.getElementById('zoom')
+        let fechado = document.getElementById('reduc')
+
+
+        if (aberto.style.display === "none") {
+            aberto.style.display = "inline"
+            fechado.style.display = "none"
+        }
+        else {
+            aberto.style.display = "none"
+            fechado.style.display = "inline"
+        }
+
+    }
+</script>
+<style>
+    #menos {
+        display: none;
+    }
+</style>
+<!-- npm cache clean -->

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Box Model</title>
+    <style>
+        body {
+            font-size: 80px;
+            text-align: center;
+            background-color: black;
+
+        }
+
+
+        .c1 {
+            background-color: chartreuse;
+            box-shadow: darkviolet 4px 4px 20px;
+        }
+
+        .c2 {
+            background-color: chocolate;
+
+            box-shadow: darkviolet 4px 4px 20px;
+        }
+
+        .c3 {
+            background-color: darkturquoise;
+            box-shadow: darkviolet 4px 4px 20px;
+        }
+
+
+        div {
+            display: inline-block;
+            /* deixa indo do lado que vc quer*/
+            padding-top: 100px;
+            padding: 100PX;
+            margin: 10PX;
+            border-radius: 5px;
+            transition: ease-in;
+            transition-duration: 2s;
+        }
+
+
+        div:hover {
+
+            color: deeppink;
+            background: url(https://i.pinimg.com/236x/1f/95/15/1f95156c3d8e2b339a22b3bad2f69a8a.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            transform: rotateY(360deg);
+            background-color: lime;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="c1">1</div>
+    <div class="c2">2</div>
+    <div class="c3">3</div>
+
+</body>
+
+</html>

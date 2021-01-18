@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        /* * {
+            /*esta classe e universal por conta do asterisco
+
+            color: aqua;
+            background-color: rgb(14, 11, 17);
+        }
+        .tag {
+            /*esta classe e assim  por conta do ponto 
+
+            color:blueviolet;
+            background-color: rgb(14, 11, 17);  
+        } 
+        #aprovados {
+            esta id e assim por conta do # 
+
+            color:chartreuse;
+            background-color:coral;
+        }
+
+        #aninhado > div{
+            /* Esta esta dizendo pra pegar dentro de aninhado a tag div */
+        /* color:chartreuse; 
+            background-color: palevioletred;
+        }*/
+        /* #aninhado section{
+            /* Pegando dentro de aninhado o section */
+        /* color: palevioletred; */
+        /* background-color:paleturquoise;  */
+        /* } */
+
+        /*p + ul{
+                   */
+        /* quando tem uma tag e logo após a que vc dicidiu */
+        /*color: peru;
+                   background-color: red;
+               }*/
+
+        /* p ~ ol {
+            color: royalblue;
+            background-color: pink;
+        } */
+        /* [feira] {
+            /* Elemento criado com uma tag criada  */
+
+        /* color: purple;
+            background-color: red;
+        } */
+        /*span:nth-child(1){
+            /* primeiro filho do elemento */
+          /*  background-color: red;
+            color: royalblue;
+        }*/
+
+        /* section > :nth-child(odd){
+            /* seleciona dentro da tag todos os  filhos inpares do elemento */
+            /* color: saddlebrown;
+            background-color: seagreen;
+        } */ 
+         section > :nth-child(even){
+            /* seleciona dentro da tag todos os  filhos pares do elemento */
+            color: saddlebrown;
+            background-color: seagreen;
+        }
+        /* [feira]*=sa  ou seja vai procurar dentro de feira o valor igual ao que voce escrever*/
+
+        section > span:nth-of-type(2){
+            /* seleciona dentro da tag  o elemento desejado e a numeraçao do elemento  que voce quer
+            */
+            color: saddlebrown;
+            background-color: seagreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='tag'>
+        <div class='tag'>
+            <p class='tag'>1</p>
+            <ul class='tag' feira='casa'>
+                <li>Arroz</li>
+                <li>Feijão</li>
+            </ul>
+            <ul class='tag' feira='escritorio empresa'>
+                <li>Café</li>
+                <li>Água</li>
+            </ul>
+            <ol id='aprovados' class='tag'>
+                <li>Maria</li>
+                <li>Pedro</li>
+                <li>Ana</li>
+            </ol>
+            <div id='aninhado' class='tag'>
+                <div class="tag">
+                    <section class='tag nolabel'>
+                        <span class='tag'>1</span>
+                        <p class='tag'>2</p>
+                        <span class='tag'>3</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

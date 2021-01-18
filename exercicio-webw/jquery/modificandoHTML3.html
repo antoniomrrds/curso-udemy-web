@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #03</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #03</h1>
+    <div id='conteudo'></div>
+
+    <script>
+       // $(document).ready(function () { Quando tiver pronto chama a funçao 
+    $(function(){
+
+            const alunos = [
+                { nome: 'Ana', nota: 9.1 },
+                { nome: 'Bianca', nota: 8.4 },
+                { nome: 'Carlos', nota: 7.6 },
+                { nome: 'Julia', nota: 9.7 }
+            ]
+            const linhas = alunos.map(p => {
+                const tdNome = $('<td>').html(p.nome).css('padding', '30px').css('border', 'solid 30px')
+                const tdNota = $('<td>').html(p.nota).css('border', ' solid 30px').css('border-radius', '20px')
+                // return $('<tr>').append(tdNome).append(tdNota).css('border-radius','20px')
+                // return $('<tr>').append([tdNome, tdNota])
+                return $('<tr>').append(tdNome, tdNota)
+            })
+
+            const tabela = $('<table>').append(linhas)
+                .css('border', 'solid 5px aqua').css('box-shadow', 'black 2px 2px 2px 4px')
+
+
+            $('#conteudo').append(tabela).css('padding', '20px').css('border-radius', '20px')
+
+        })
+
+    </script>
+</body>

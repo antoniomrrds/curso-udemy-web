@@ -1,0 +1,10 @@
+#textoPrincipal{
+    font-size: 20px;
+    margin-left: auto;
+     margin-right: auto;
+     text-align: center;
+     width: 100px;
+     align-items: center;
+     display: block;
+     background-color: salmon;
+}

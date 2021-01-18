@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Especificidade CSS</title>
+    <style>
+        /* https://specificity.keegan.st/ */
+        /* 
+   1.inlline
+   2.ID 
+   3.Classe,pseudo-classe,atributo
+   4.Elemento, Pseudo-Elementos    
+   */
+
+
+        body {
+            font-size: 40px;
+
+        }
+
+        div {
+            background-color: skyblue;
+            color: slateblue;
+        }
+
+        div[wm-cor] {
+            background-color: springgreen;
+        }
+
+        div.estilo {
+            background-color: orange;
+        }
+
+        #unico1,
+        #unico2 {
+            background-color: orangered;
+        }
+
+        div:hover,
+        #unico1:hover {
+            background-color: paleturquoise;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="unico1" class="estilo" style="background-color:palegoldenrod\;">
+        #unico1 vs .estilo vs inline
+    </div>
+    <div id="unico2" class="estilo">#unico2 vs .estilo</div>
+    <div class="estilo" wm-cor>.estilo vs wm-cor</div>
+    <div wm-cor>wm-cor</div>
+    <div class="estilo">.estilo</div>
+    <div>elemento</div>
+</body>
+
+</html>
