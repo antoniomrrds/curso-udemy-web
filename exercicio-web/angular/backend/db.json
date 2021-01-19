@@ -1,19 +1,24 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "name": "Caneta Bic Preta",
-            "price": 5.89
-        },
-        {
-            "id": 2,
-            "name": "Notebook Mac Pro",
-            "price": 12225.89
-        },
-        {
-            "id": 3,
-            "name": "Samsung a3",
-            "price": 1500.89
-        }
-    ]
+  "products": [
+    {
+      "id": 1,
+      "name": "Caneta Bic Preta",
+      "price": 5.89
+    },
+    {
+      "id": 2,
+      "name": "Notebook Mac Pro",
+      "price": 12225.89
+    },
+    {
+      "id": 3,
+      "name": "Samsung a3",
+      "price": 1500.89
+    },
+    {
+      "name": "antonio",
+      "price": "23",
+      "id": 4
+    }
+  ]
 }
