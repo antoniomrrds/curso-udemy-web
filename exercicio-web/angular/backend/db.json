@@ -19,6 +19,17 @@
       "name": "antonio",
       "price": "23",
       "id": 4
+    },
+    {
+      "name": "notebook",
+      "price": "20000",
+      "id": 5
+    },
+    {
+      "name": "hjku",
+      "price": "67",
+      "id": 6
     }
+ 
   ]
 }
