@@ -1,0 +1,412 @@
+Instruções
+Formas de consultar
+    db.estados.find().pretty()
+O primeiro dado achado
+    db.estados.findOne()
+Quando voce quer que aja filtro
+    db.estados.find({sigla:"RJ"})
+Quando vc usa operadores logicos
+    db.estados.find({$or: [{sigla:"RJ"}, {sigla: "AC"}]}).pretty()   
+Quando vc teste e tras se tem o objeto que vc mando verificar
+    db.estados.find({populacao: {$exists: true}}).pretty()
+Quando vc Testa o skip e pula o parrametros que vc colocou
+    db.estados.skip(1)
+Quando vc limita e traz    
+    db.estados.skip(1).limit(2)
+Quando vc quer saber Quantos dados estao no seu banco 
+    db.estados.count()
+Quando vc quer filtrar os dados do banco de dados  e 
+1 = (trazer) ,
+0 = (nao trazer)
+e pra 
+    db.estados.find({sigla: "SP"},{nome:1,sigla:1})
+Sem o _id
+    db.estados.find({sigla: "SP"},{nome:1,sigla:1,_id:0})
+Quando vc quer trazer so as cidades
+    db.estados.find({sigla:"SP"},{"cidades.nome": 1, _id:0})
+
+
+
+
+    Microsoft Windows [versão 10.0.19042.746]
+(c) 2020 Microsoft Corporation. Todos os direitos reservados.
+
+C:\Users\Belo Horizonte>mongo
+MongoDB shell version v4.4.3
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("c003e35f-6183-4fd8-b16b-1252ac05f7a5") }
+MongoDB server version: 4.4.3
+---
+The server generated these startup warnings when booting:
+        2021-02-04T01:05:16.311-03:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> db.estados.find()
+{ "_id" : ObjectId("602061227c8f889938c77dcc"), "nome" : "São Paulo", "sigla" : "SP", "regiao" : "Sudeste", "cidades" : [ { "nome" : "Campinas", "area" : 795.7, "prefeito" : "Jonas Donizette", "populacao" : 1081000 }, { "nome" : "Garulhos", "populacao" : 1325000 }, { "nome" : "Sorocaba", "distanciaCapital" : 87, "populacao" : 644919 } ] }
+> db.estados.find().pretty()
+{
+        "_id" : ObjectId("602061227c8f889938c77dcc"),
+        "nome" : "São Paulo",
+        "sigla" : "SP",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "nome" : "Campinas",
+                        "area" : 795.7,
+                        "prefeito" : "Jonas Donizette",
+                        "populacao" : 1081000
+                },
+                {
+                        "nome" : "Garulhos",
+                        "populacao" : 1325000
+                },
+                {
+                        "nome" : "Sorocaba",
+                        "distanciaCapital" : 87,
+                        "populacao" : 644919
+                }
+        ]
+}
+> use wm
+switched to db wm
+> db.estados.find().pretty()
+{
+        "_id" : ObjectId("60205575bf19852ec81b049f"),
+        "nome" : "Acre",
+        "sigla" : "AC",
+        "regiao" : "Norte"
+}
+{
+        "_id" : ObjectId("602055e0bf19852ec81b04a0"),
+        "nome" : "Alagoas",
+        "sigla" : "AL",
+        "regiao" : "Nordeste",
+        "populacao" : 323231213223
+}
+{
+        "_id" : ObjectId("602056efbf19852ec81b04a1"),
+        "nome" : "Rio de Janeiro",
+        "sigla" : "RJ",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "nome" : "Niteroi",
+                        "area" : 133.9,
+                        "populacao" : 487562
+                }
+        ]
+}
+{
+        "_id" : ObjectId("602061907c8f889938c77dcd"),
+        "nome" : "São Paulo",
+        "sigla" : "SP",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "nome" : "Campinas",
+                        "area" : 795.7,
+                        "prefeito" : "Jonas Donizette",
+                        "populacao" : 1081000
+                },
+                {
+                        "nome" : "Garulhos",
+                        "populacao" : 1325000
+                },
+                {
+                        "nome" : "Sorocaba",
+                        "distanciaCapital" : 87,
+                        "populacao" : 644919
+                }
+        ]
+}
+{
+        "_id" : ObjectId("60206699286614a717111d14"),
+        "nome" : "São Paulo",
+        "sigla" : "SP",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "_id" : ObjectId("60206699286614a717111d11"),
+                        "nome" : "Campinas",
+                        "area" : 795.7,
+                        "prefeito" : "Jonas Donizette",
+                        "populacao" : 1081000
+                },
+                {
+                        "_id" : ObjectId("60206699286614a717111d12"),
+                        "nome" : "Garulhos",
+                        "populacao" : 1325000
+                },
+                {
+                        "_id" : ObjectId("60206699286614a717111d13"),
+                        "nome" : "Sorocaba",
+                        "distanciaCapital" : 87,
+                        "populacao" : 644919
+                }
+        ]
+}
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+test    0.000GB
+wm      0.000GB
+> db.estados.find({sigla:"RJ"})
+{ "_id" : ObjectId("602056efbf19852ec81b04a1"), "nome" : "Rio de Janeiro", "sigla" : "RJ", "regiao" : "Sudeste", "cidades" : [ { "nome" : "Niteroi", "area" : 133.9, "populacao" : 487562 } ] }
+> db.estados.find({sigla:"RJ"}).pretty()
+{
+        "_id" : ObjectId("602056efbf19852ec81b04a1"),
+        "nome" : "Rio de Janeiro",
+        "sigla" : "RJ",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "nome" : "Niteroi",
+                        "area" : 133.9,
+                        "populacao" : 487562
+                }
+        ]
+}
+> db.estados.find({$or:[{sigla:"RJ"},{sigla:"AC"}]}).pretty()
+{
+        "_id" : ObjectId("60205575bf19852ec81b049f"),
+        "nome" : "Acre",
+        "sigla" : "AC",
+        "regiao" : "Norte"
+}
+{
+        "_id" : ObjectId("602056efbf19852ec81b04a1"),
+        "nome" : "Rio de Janeiro",
+        "sigla" : "RJ",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "nome" : "Niteroi",
+                        "area" : 133.9,
+                        "populacao" : 487562
+                }
+        ]
+}
+> db.estados.find({cidade: {$exists: true}}).pretty()
+> db.estados.find({nome: {$exists: true}}).pretty()
+{
+        "_id" : ObjectId("60205575bf19852ec81b049f"),
+        "nome" : "Acre",
+        "sigla" : "AC",
+        "regiao" : "Norte"
+}
+{
+        "_id" : ObjectId("602055e0bf19852ec81b04a0"),
+        "nome" : "Alagoas",
+        "sigla" : "AL",
+        "regiao" : "Nordeste",
+        "populacao" : 323231213223
+}
+{
+        "_id" : ObjectId("602056efbf19852ec81b04a1"),
+        "nome" : "Rio de Janeiro",
+        "sigla" : "RJ",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "nome" : "Niteroi",
+                        "area" : 133.9,
+                        "populacao" : 487562
+                }
+        ]
+}
+{
+        "_id" : ObjectId("602061907c8f889938c77dcd"),
+        "nome" : "São Paulo",
+        "sigla" : "SP",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "nome" : "Campinas",
+                        "area" : 795.7,
+                        "prefeito" : "Jonas Donizette",
+                        "populacao" : 1081000
+                },
+                {
+                        "nome" : "Garulhos",
+                        "populacao" : 1325000
+                },
+                {
+                        "nome" : "Sorocaba",
+                        "distanciaCapital" : 87,
+                        "populacao" : 644919
+                }
+        ]
+}
+{
+        "_id" : ObjectId("60206699286614a717111d14"),
+        "nome" : "São Paulo",
+        "sigla" : "SP",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "_id" : ObjectId("60206699286614a717111d11"),
+                        "nome" : "Campinas",
+                        "area" : 795.7,
+                        "prefeito" : "Jonas Donizette",
+                        "populacao" : 1081000
+                },
+                {
+                        "_id" : ObjectId("60206699286614a717111d12"),
+                        "nome" : "Garulhos",
+                        "populacao" : 1325000
+                },
+                {
+                        "_id" : ObjectId("60206699286614a717111d13"),
+                        "nome" : "Sorocaba",
+                        "distanciaCapital" : 87,
+                        "populacao" : 644919
+                }
+        ]
+}
+> db.estados.find({cidades: {$exists: true}}).pretty()
+{
+        "_id" : ObjectId("602056efbf19852ec81b04a1"),
+        "nome" : "Rio de Janeiro",
+        "sigla" : "RJ",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "nome" : "Niteroi",
+                        "area" : 133.9,
+                        "populacao" : 487562
+                }
+        ]
+}
+{
+        "_id" : ObjectId("602061907c8f889938c77dcd"),
+        "nome" : "São Paulo",
+        "sigla" : "SP",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "nome" : "Campinas",
+                        "area" : 795.7,
+                        "prefeito" : "Jonas Donizette",
+                        "populacao" : 1081000
+                },
+                {
+                        "nome" : "Garulhos",
+                        "populacao" : 1325000
+                },
+                {
+                        "nome" : "Sorocaba",
+                        "distanciaCapital" : 87,
+                        "populacao" : 644919
+                }
+        ]
+}
+{
+        "_id" : ObjectId("60206699286614a717111d14"),
+        "nome" : "São Paulo",
+        "sigla" : "SP",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "_id" : ObjectId("60206699286614a717111d11"),
+                        "nome" : "Campinas",
+                        "area" : 795.7,
+                        "prefeito" : "Jonas Donizette",
+                        "populacao" : 1081000
+                },
+                {
+                        "_id" : ObjectId("60206699286614a717111d12"),
+                        "nome" : "Garulhos",
+                        "populacao" : 1325000
+                },
+                {
+                        "_id" : ObjectId("60206699286614a717111d13"),
+                        "nome" : "Sorocaba",
+                        "distanciaCapital" : 87,
+                        "populacao" : 644919
+                }
+        ]
+}
+> db.estados.find({populacao: {$exists: true}}).pretty()
+{
+        "_id" : ObjectId("602055e0bf19852ec81b04a0"),
+        "nome" : "Alagoas",
+        "sigla" : "AL",
+        "regiao" : "Nordeste",
+        "populacao" : 323231213223
+}
+> db.find().skip(0).limit(2)
+uncaught exception: TypeError: db.find is not a function :
+@(shell):1:1
+> db.estados.find().skip(0).limit(2)
+{ "_id" : ObjectId("60205575bf19852ec81b049f"), "nome" : "Acre", "sigla" : "AC", "regiao" : "Norte" }
+{ "_id" : ObjectId("602055e0bf19852ec81b04a0"), "nome" : "Alagoas", "sigla" : "AL", "regiao" : "Nordeste", "populacao" : 323231213223 }
+> db.estados.find().skip(0).limit(2).pretty()
+{
+        "_id" : ObjectId("60205575bf19852ec81b049f"),
+        "nome" : "Acre",
+        "sigla" : "AC",
+        "regiao" : "Norte"
+}
+{
+        "_id" : ObjectId("602055e0bf19852ec81b04a0"),
+        "nome" : "Alagoas",
+        "sigla" : "AL",
+        "regiao" : "Nordeste",
+        "populacao" : 323231213223
+}
+> db.estados.count()
+5
+> db.estados.find({sigla:"SP"},{nome:1,sigla:1})
+{ "_id" : ObjectId("602061907c8f889938c77dcd"), "nome" : "São Paulo", "sigla" : "SP" }
+{ "_id" : ObjectId("60206699286614a717111d14"), "nome" : "São Paulo", "sigla" : "SP" }
+> db.estados.find({sigla:"SP"},{nome:1,sigla:1, _id:0}).pretty()
+{ "nome" : "São Paulo", "sigla" : "SP" }
+{ "nome" : "São Paulo", "sigla" : "SP" }
+> db.estados.find({sigla:"SP"},cidades.nome":1, _id:0}).pretty()
+uncaught exception: SyntaxError: "" literal not terminated before end of script :
+@(shell):1:62
+> db.estados.find({sigla:"SP"},"cidades.nome":1, _id:0}).pretty()
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:43
+> db.estados.find({sigla: "SP"},{"cidades.nome":1, _id:0}).pretty()
+{
+        "cidades" : [
+                {
+                        "nome" : "Campinas"
+                },
+                {
+                        "nome" : "Garulhos"
+                },
+                {
+                        "nome" : "Sorocaba"
+                }
+        ]
+}
+{
+        "cidades" : [
+                {
+                        "nome" : "Campinas"
+                },
+                {
+                        "nome" : "Garulhos"
+                },
+                {
+                        "nome" : "Sorocaba"
+                }
+        ]
+}
+> db.estados.find({sigla:"SP"},cidades.nome":1, _id:0}).pretty()^C
+bye
+
+C:\Users\Belo Horizonte>

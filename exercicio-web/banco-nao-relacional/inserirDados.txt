@@ -1,0 +1,98 @@
+> use wm
+switched to db wm
+> show collections
+> db.estados.insert({})
+WriteResult({ "nInserted" : 1 })
+> show collections
+estados
+> db.estados.drop()
+true
+> show collections
+> db.estados.insert({nome:"Acre",siga:"AC",regiao:Norte})
+uncaught exception: ReferenceError: Norte is not defined :
+@(shell):1:42
+> db.estados.insert({nome:"Acre", sigla:"AC", regiao:Norte})
+uncaught exception: ReferenceError: Norte is not defined :
+@(shell):1:45
+> db.estados.insert({nome:"Acre", sigla:"AC", regiao:"Norte"})
+WriteResult({ "nInserted" : 1 })
+> show collections
+estados
+> show db
+uncaught exception: Error: don't know how to show [db] :
+shellHelper.show@src/mongo/shell/utils.js:1191:11
+shellHelper@src/mongo/shell/utils.js:819:15
+@(shellhelp2):1:1
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+wm      0.000GB
+> db.estados.save({nome:"Alagoas",sigla:"AL",regiao:"Nordeste",populacao: 323231213223})
+WriteResult({ "nInserted" : 1 })
+> db,estados.find
+uncaught exception: ReferenceError: estados is not defined :
+@(shell):1:4
+> db.estados.find()
+{ "_id" : ObjectId("60205575bf19852ec81b049f"), "nome" : "Acre", "sigla" : "AC", "regiao" : "Norte" }
+{ "_id" : ObjectId("602055e0bf19852ec81b04a0"), "nome" : "Alagoas", "sigla" : "AL", "regiao" : "Nordeste", "populacao" : 323231213223 }
+> db.estados.find().pretty()
+{
+        "_id" : ObjectId("60205575bf19852ec81b049f"),
+        "nome" : "Acre",
+        "sigla" : "AC",
+        "regiao" : "Norte"
+}
+{
+        "_id" : ObjectId("602055e0bf19852ec81b04a0"),
+        "nome" : "Alagoas",
+        "sigla" : "AL",
+        "regiao" : "Nordeste",
+        "populacao" : 323231213223
+}
+> db.estados.insert({
+... nome:"Rio de Janeiro",
+... sigla:"RJ",
+... regiao:"Sudeste",
+... cidades:[{
+... nome:"Niteroi",
+... area: 133.9,
+... populacao:487562
+... }]
+... })
+WriteResult({ "nInserted" : 1 })
+> db.estados.find().pretty()
+{
+        "_id" : ObjectId("60205575bf19852ec81b049f"),
+        "nome" : "Acre",
+        "sigla" : "AC",
+        "regiao" : "Norte"
+}
+{
+        "_id" : ObjectId("602055e0bf19852ec81b04a0"),
+        "nome" : "Alagoas",
+        "sigla" : "AL",
+        "regiao" : "Nordeste",
+        "populacao" : 323231213223
+}
+{
+        "_id" : ObjectId("602056efbf19852ec81b04a1"),
+        "nome" : "Rio de Janeiro",
+        "sigla" : "RJ",
+        "regiao" : "Sudeste",
+        "cidades" : [
+                {
+                        "nome" : "Niteroi",
+                        "area" : 133.9,
+                        "populacao" : 487562
+                }
+        ]
+}
+>db.help()
+db 2 tabs
+
+resposta do desafio
+
+> db.estados.save({ nome:"São Paulo",sigla:"SP",regiao:"Sudeste", cidades:[{ _id: ObjectId() ,nome:"Campinas", area: 795.7,prefeito:"Jonas Donizette",populacao:1081000},{ _id: ObjectId() ,nome:"Garulhos",populacao: 1325000},{ _id: ObjectId() , nome:"Sorocaba",distanciaCapital:87,populacao: 644919}]})
+
+

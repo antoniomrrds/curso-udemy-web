@@ -1,0 +1,9 @@
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Sorocaba"}},
+    { $unwind: "$cidades"},
+    { $match: {"cidades.nome": "Sorocaba"}},
+    { $project: { _id: "$cidades._id"}}
+]).pretty()
+
+$unwind e uma forma de desembaralhar e tras um e fragmenta em varios arquivos
+$match e para trazer a ocorrencia que vc quer

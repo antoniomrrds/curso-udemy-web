@@ -1,0 +1,6 @@
+para start => mongo
+para ajuda => db.help()
+para mostrar  os bancos => show dbs
+para criar colecao => db.createCollection('Estados') no parenteses o nome das colections
+e case sensititve
+para excluir db.estados.drop() 
