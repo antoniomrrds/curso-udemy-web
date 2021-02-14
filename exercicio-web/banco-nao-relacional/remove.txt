@@ -1,0 +1,7 @@
+db.estados.count()
+db.estados.remove({sigla:"AC"})
+db.estados.find().pretty()  
+
+db.estados.remove({populacao:$exists: true}},1)
+db.estados.update({sigla:"SP"},{$set: {populacao: 45340000}})
+db.estados.remove({populacao: {$lt: 32323121322}})
