@@ -1,0 +1,13 @@
+linha de comando :
+para criar json
+npm init -y 
+node index.js e a arquivo do main principal
+
+ele e para o desenvolvimento e não a produção 
+nodemon = e um laucher ou seja ele ficara disparando a chamado sozinho quando hover alteração 
+npm i g --save-dev nodemon
+npm i g  nodemon
+mudei o start para o nodemon ja pra ficar observando
+para chamar use 
+    npm run (script o nome ) 
+    npm start
