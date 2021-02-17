@@ -11,3 +11,16 @@ mudei o start para o nodemon ja pra ficar observando
 para chamar use 
     npm run (script o nome ) 
     npm start
+
+já para a produção eles  usam pm2 
+        npm i --save pm2
+        para rodar usa o script
+            npm run production
+    para monitorar usa 
+        pm2 monit
+        pm2 status
+        pm2 show 0
+        pm2 restart = e o id da aplicação
+        pm2 restart = e o nome da aplicação
+        pm2 stop = e o id para o processo
+        pm2 kill voce para a instancia do pm2
