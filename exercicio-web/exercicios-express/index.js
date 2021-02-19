@@ -1,7 +1,23 @@
 const express = require('express')
 const app = express()
 
+const bodyParser = require('body-parser')
+const usuarioApi = require('./api/usuarioApi')
+// duas formas ou require e 
+// require('./api/produto')(app, ' com Param!')
+// const
+const produtoApi = require('./api/produto')
+produtoApi(app, ' com Param!')
+
 const saudacao = require('./saudacaoMid')
+
+app.post('/usuario', usuarioApi.salvar)
+app.get('/usuario', usuarioApi.obter)
+
+
+app.use(bodyParser.text())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 // Quando voce coloca na frente a  url que voce quer ele acessa direto ele aceita so ela 
 // app.use("/opa",(req, res) => { 
 //     res.send('Estou<b> Bem</b>! ')
@@ -20,15 +36,19 @@ app.get('/clientes/relatorio', (req,res) => {
 
 
 app.post('/corpo', (req, res) => { 
-    let corpo = ''
-    req.on('data',function(parte){
-        corpo += parte
-    })
-
-    req.on('end', function () {
-        res.send(corpo)
-     })
+    res.send(req.body)
+     
 })
+// app.post('/corpo', (req, res) => { 
+//     let corpo = ''
+//     req.on('data',function(parte){
+//         corpo += parte
+//     })
+
+//     req.on('end', function () {
+//         res.send(corpo)
+//      })
+// })
 app.get('/clientes/:id', (req, res) => { 
     res.send(`Cliente ${req.params.id} Selecionado !!! `)
 })
