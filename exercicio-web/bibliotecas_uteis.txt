@@ -1,0 +1,14 @@
+npm i -g knex = este e a biblioteca knex.js que e um query selector ou seja e uma forma de fazer query mais organizado do que fazer query pura no arquivo 
+
+comandos dos postgres
+para startar
+
+psql -U postgres
+
+para  criar databases e o nome do banco criado
+
+CREATE DATABASE knowledge_final
+
+para conectar ao database \c
+
+para listar as tabelas \dt
