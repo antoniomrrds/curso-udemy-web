@@ -1,14 +1,31 @@
 npm i -g knex = este e a biblioteca knex.js que e um query selector ou seja e uma forma de fazer query mais organizado do que fazer query pura no arquivo 
 
-comandos dos postgres
-para startar
+comandos do knex.js
+knex init = para criar o knexFile que e a forma de configurar o banco 
 
-psql -U postgres
+knex migrate: make create_table_nomeDaTabela = serve para criar a tabela lembre se que  depois vc configurar os dados; 
+    dentro do up = que e o avanco do sistema
+    dentro do  down = retrocesso do banco ou seja do sistema 
+
+knex migrate:latest : execute a criacao dos campos  das tabelas comando up
+knex migrate:rollback : execute o down configurado
+
+
+comando para consultar migrations 
+    select * from knex_migrations;
+comandos dos postgres
+    para startar
+
+    psql -U postgres
 
 para  criar databases e o nome do banco criado
 
-CREATE DATABASE knowledge_final
-
+    CREATE DATABASE knowledge_final
+para listar os banco de dados voce usa \l
 para conectar ao database \c
-
 para listar as tabelas \dt
+
+
+
+
+
