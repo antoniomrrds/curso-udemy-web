@@ -27,5 +27,14 @@ para listar as tabelas \dt
 
 
 
+erros possiveis e seus significados
+
+erro status(404) =  erro pelo lado do cliente que deixo algo 
+erro status(500) = errro do lado do servidor 
+erro status(204) = significa que deu tudo bem so nao tem dado de resposta
+erro status(401) = Significa que voce nao possui acesso aquilo
+
+
+
 
 
