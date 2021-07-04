@@ -34,7 +34,7 @@ erro status(500) = errro do lado do servidor
 erro status(204) = significa que deu tudo bem so nao tem dado de resposta
 erro status(401) = Significa que voce nao possui acesso aquilo
 
-
-
+Este comnando e pra fazer com que voce se torne administrador do sistema 
+knowledge_final=# update users set admin = true where id = 1;
 
 
