@@ -26,6 +26,8 @@ para conectar ao database \c
 para listar as tabelas \dt
 
 
+=======================================para criar um arquivo json ou seja dependencia dio projeto 
+       Este comando para criar o json com as dependecia que irá inserir           npm init --yes
 
 erros possiveis e seus significados
 
