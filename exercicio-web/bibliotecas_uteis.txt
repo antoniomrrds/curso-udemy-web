@@ -39,4 +39,6 @@ erro status(401) = Significa que voce nao possui acesso aquilo
 Este comnando e pra fazer com que voce se torne administrador do sistema 
 knowledge_final=# update users set admin = true where id = 1;
 
+modulo de pacote do react = npm i -g create-react-app
+
 
